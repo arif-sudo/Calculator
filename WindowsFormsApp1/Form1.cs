@@ -10,19 +10,20 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form1 : Form
+    public partial class Calculator : Form
     {
         Double result = 0;
         string operation = "";
         bool isOperationPerformed = false;
-        public Form1()
+        public Calculator()
         {
             InitializeComponent();
         }
 
         private void c_Click(object sender, EventArgs e)
         {
-            label_result.Text = "";
+            label_result.Text = "0";
+            label.Text = "0";
             result = 0;
         }
 
@@ -39,18 +40,18 @@ namespace WindowsFormsApp1
 
             if (result != 0)
             {
-                operation = button.Text;
                 buttonEqual.PerformClick();
+                operation = button.Text;
+                result = double.Parse(label_result.Text);
+                label.Text = result + operation;
                 isOperationPerformed = true;
-            }
-
-            operation = button.Text;
-
-            result = double.Parse(label_result.Text);
-
-            isOperationPerformed = true;
-
-            
+            }else
+            {
+                operation = button.Text;
+                result = double.Parse(label_result.Text);
+                label.Text = result + operation;
+                isOperationPerformed = true;
+            }            
         }
 
         private void equal_click(object sender, EventArgs e)
@@ -63,7 +64,7 @@ namespace WindowsFormsApp1
                 case "-":
                     label_result.Text = (result - Double.Parse(label_result.Text)).ToString();
                     break;
-                case "*":
+                case "x":
                     label_result.Text = (result * Double.Parse(label_result.Text)).ToString();
                     break;
                 case "/":
@@ -74,7 +75,7 @@ namespace WindowsFormsApp1
 
             }
             result = double.Parse(label_result.Text);
-
+            label.Text = "";
         }
 
         private void button_click(object sender, EventArgs e)
@@ -98,6 +99,21 @@ namespace WindowsFormsApp1
                 label_result.Text += button.Text; 
             }
             
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+            
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_result_TextChanged(object sender, EventArgs e)
+        {
 
         }
 

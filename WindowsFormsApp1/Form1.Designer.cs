@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class Form1
+    partial class Calculator
     {
         /// <summary>
         /// Required designer variable.
@@ -47,6 +47,7 @@
             this.divideButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.label_result = new System.Windows.Forms.TextBox();
+            this.label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // c
@@ -291,20 +292,32 @@
             // 
             this.label_result.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_result.BackColor = System.Drawing.SystemColors.Info;
-            this.label_result.Location = new System.Drawing.Point(17, 30);
-            this.label_result.MinimumSize = new System.Drawing.Size(0, 45);
+            this.label_result.Location = new System.Drawing.Point(16, 28);
+            this.label_result.MinimumSize = new System.Drawing.Size(4, 45);
             this.label_result.Name = "label_result";
-            this.label_result.Size = new System.Drawing.Size(299, 45);
+            this.label_result.Size = new System.Drawing.Size(300, 45);
             this.label_result.TabIndex = 18;
             this.label_result.Text = "0";
             this.label_result.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.label_result.TextChanged += new System.EventHandler(this.label_result_TextChanged);
             // 
-            // Form1
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Location = new System.Drawing.Point(13, 9);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(14, 16);
+            this.label.TabIndex = 19;
+            this.label.Text = "0";
+            this.label.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(347, 382);
+            this.Controls.Add(this.label);
             this.Controls.Add(this.label_result);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.divideButton);
@@ -325,8 +338,9 @@
             this.Controls.Add(this.c);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Calculator";
+            this.Text = "Calculator";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,6 +366,7 @@
         private System.Windows.Forms.Button divideButton;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.TextBox label_result;
+        private System.Windows.Forms.Label label;
     }
 }
 
